@@ -1,10 +1,11 @@
 const gulp = require("gulp");
 const when = require("gulp-if");
+const dartSass = require("sass");
 const prefixer = require("autoprefixer");
 const plumber = require("gulp-plumber");
 const changed = require("gulp-changed");
 const sourcemaps = require("gulp-sourcemaps");
-const sass = require("gulp-sass");
+const gulpSass = require("gulp-sass");
 const postcss = require("gulp-postcss");
 const notify = require("gulp-notify");
 const cssnano = require("cssnano");
@@ -12,7 +13,7 @@ const size = require("gulp-size");
 const postcssPresetEnv = require("postcss-preset-env");
 const { argv } = require("yargs");
 
-sass.compiler = require("node-sass");
+const sass = gulpSass(dartSass);
 
 // Check if gulp scripts --prod or --production has been added to the task
 const production = argv.prod || argv.production;
